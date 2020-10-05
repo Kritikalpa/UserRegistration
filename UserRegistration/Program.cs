@@ -44,7 +44,7 @@ namespace UserRegistration
 
             Console.WriteLine("\nEnter the phone number");
             string phoneNumber = Console.ReadLine();
-            while (!Regex.IsMatch(phoneNumber, @"^[0-9]{2}\s[0-9]{10}$"))
+            while (!Regex.IsMatch(phoneNumber, @"^(?=.{8,})(?=.*[A-Z]).*$"))
             {
                 Console.WriteLine("Invalid Phone Number");
                 Console.WriteLine("Re-enter Phone Number");
@@ -55,9 +55,9 @@ namespace UserRegistration
 
             Console.WriteLine("\nCreate a Password");
             string password = Console.ReadLine();
-            while (!Regex.IsMatch(password, @"^[\w\W]{8,}$"))
+            while (!Regex.IsMatch(password, @"^(?=.{8,})(?=.*[A-Z])$"))
             {
-                Console.WriteLine("Invalid Password format, should contain atleast 8 characters");
+                Console.WriteLine("Invalid Password format, should contain atleast 8 characters and 1 uppercase character");
                 Console.WriteLine("Re-enter Password");
                 password = Console.ReadLine();
 
