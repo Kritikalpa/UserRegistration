@@ -30,7 +30,17 @@ namespace UserRegistration
                 
             }
             Console.WriteLine("Valid Last Name");
-            
+
+            Console.WriteLine("\nEnter the Email");
+            string emailId = Console.ReadLine();
+            Regex reEmail = new Regex(@"^([a-z0-9][a-z0-9.+_-]*@([a-z0-9]([a-z0-9-]*[a-z])?\.?){1,2}([a-z]{2})?)$");
+            while (!reEmail.IsMatch(emailId))
+            {
+                Console.WriteLine("Invalid Email Id");
+                Console.WriteLine("Re-enter Email Id");
+                emailId = Console.ReadLine();
+            }
+            Console.WriteLine("Valid Email");
         }
     }
 }
