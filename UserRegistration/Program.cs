@@ -11,7 +11,7 @@ namespace UserRegistration
 
             Console.WriteLine("\nEnter the first name");
             string firstName = Console.ReadLine();
-            while (!Regex.IsMatch(firstName, @"^[A-Z][a-z]{3,}$"))
+            while (!Regex.IsMatch(firstName, @"^[A-Z][A-Za-z\s]{3,}$"))
             {
                 Console.WriteLine("Invalid First Name");
                 Console.WriteLine("Re-enter First Name");
@@ -41,6 +41,17 @@ namespace UserRegistration
                 emailId = Console.ReadLine();
             }
             Console.WriteLine("Valid Email");
+
+            Console.WriteLine("\nEnter the phone number");
+            string phoneNumber = Console.ReadLine();
+            while (!Regex.IsMatch(phoneNumber, @"^[0-9]{2}\s[0-9]{10}$"))
+            {
+                Console.WriteLine("Invalid Phone Number");
+                Console.WriteLine("Re-enter Phone Number");
+                phoneNumber = Console.ReadLine();
+
+            }
+            Console.WriteLine("Valid Phone Number");
         }
     }
 }
