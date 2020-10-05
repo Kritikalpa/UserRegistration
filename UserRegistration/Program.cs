@@ -44,7 +44,7 @@ namespace UserRegistration
 
             Console.WriteLine("\nEnter the phone number");
             string phoneNumber = Console.ReadLine();
-            while (!Regex.IsMatch(phoneNumber, @"^(?=.{8,})(?=.*[A-Z]).*$"))
+            while (!Regex.IsMatch(phoneNumber, @"^[0-9]{2}\s[0-9]{10}$"))
             {
                 Console.WriteLine("Invalid Phone Number");
                 Console.WriteLine("Re-enter Phone Number");
