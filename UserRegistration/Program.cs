@@ -55,9 +55,9 @@ namespace UserRegistration
 
             Console.WriteLine("\nCreate a Password");
             string password = Console.ReadLine();
-            while (!Regex.IsMatch(password, @"^[\w\W]{8,}$"))
+            while (!Regex.IsMatch(password, @"^(?=.{8,})(?=.*[A-Z])$"))
             {
-                Console.WriteLine("Invalid Password format, should contain atleast 8 characters");
+                Console.WriteLine("Invalid Password format, should contain atleast 8 characters and 1 uppercase character");
                 Console.WriteLine("Re-enter Password");
                 password = Console.ReadLine();
 
