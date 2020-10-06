@@ -11,7 +11,7 @@ namespace UserRegistration
 
             Console.WriteLine("\nEnter the first name");
             string firstName = Console.ReadLine();
-            while (!Regex.IsMatch(firstName, @"^[A-Z][A-Za-z\s]{3,}$"))
+            while (!Regex.IsMatch(firstName, @"^[A-Z][A-Za-z\s]{2,}$"))
             {
                 Console.WriteLine("Invalid First Name");
                 Console.WriteLine("Re-enter First Name");
@@ -22,7 +22,7 @@ namespace UserRegistration
 
             Console.WriteLine("\nEnter the last name");
             string lastName = Console.ReadLine();
-            while (!Regex.IsMatch(lastName, @"^[A-Z][a-z]{3,}$"))
+            while (!Regex.IsMatch(lastName, @"^[A-Z][a-z]{2,}$"))
             {
                 Console.WriteLine("Invalid Last Name");
                 Console.WriteLine("Re-enter Last Name");
@@ -33,7 +33,7 @@ namespace UserRegistration
 
             Console.WriteLine("\nEnter the Email");
             string emailId = Console.ReadLine();
-            Regex reEmail = new Regex(@"^([a-z0-9][a-z0-9.+_-]*@([a-z0-9]([a-z0-9-]*[a-z])?\.?){1,2}([a-z]{2})?)$");
+            Regex reEmail = new Regex(@"^([a-z0-9][a-z0-9+_-]*\.?[a-z0-9]+@([a-z0-9]([a-z0-9-]*[a-z])?\.?){1,2}([a-z]{2})?)$");
             while (!reEmail.IsMatch(emailId))
             {
                 Console.WriteLine("Invalid Email Id");
@@ -44,7 +44,7 @@ namespace UserRegistration
 
             Console.WriteLine("\nEnter the phone number");
             string phoneNumber = Console.ReadLine();
-            while (!Regex.IsMatch(phoneNumber, @"^[0-9]{2}\s[0-9]{10}$"))
+            while (!Regex.IsMatch(phoneNumber, @"^\+?[0-9]{1,3}\s[0-9]{10}$"))
             {
                 Console.WriteLine("Invalid Phone Number");
                 Console.WriteLine("Re-enter Phone Number");
