@@ -13,7 +13,7 @@ namespace UserRegistration
             string firstName = Console.ReadLine();
             while (!Regex.IsMatch(firstName, @"^[A-Z][A-Za-z\s]{2,}$"))
             {
-                Console.WriteLine("Invalid First Name");
+                Console.WriteLine("Invalid First Name. Should start with an uppercase and contain minimum 3 characters");
                 Console.WriteLine("Re-enter First Name");
                 firstName = Console.ReadLine();
             }
@@ -24,7 +24,7 @@ namespace UserRegistration
             string lastName = Console.ReadLine();
             while (!Regex.IsMatch(lastName, @"^[A-Z][a-z]{2,}$"))
             {
-                Console.WriteLine("Invalid Last Name");
+                Console.WriteLine("Invalid Last Name. Should start with an uppercase and contain minimum 3 characters");
                 Console.WriteLine("Re-enter Last Name");
                 lastName = Console.ReadLine();
                 
@@ -36,7 +36,7 @@ namespace UserRegistration
             Regex reEmail = new Regex(@"^([a-z0-9][a-z0-9+_-]*\.?[a-z0-9]+@([a-z0-9]([a-z0-9-]*[a-z])?\.?){1,2}([a-z]{2})?)$");
             while (!reEmail.IsMatch(emailId))
             {
-                Console.WriteLine("Invalid Email Id");
+                Console.WriteLine("Invalid Email Id. Should comply to emailId naming convention");
                 Console.WriteLine("Re-enter Email Id");
                 emailId = Console.ReadLine();
             }
@@ -46,7 +46,7 @@ namespace UserRegistration
             string phoneNumber = Console.ReadLine();
             while (!Regex.IsMatch(phoneNumber, @"^\+?[0-9]{1,3}\s[0-9]{10}$"))
             {
-                Console.WriteLine("Invalid Phone Number");
+                Console.WriteLine("Invalid Phone Number. Should countain country code followed by space and 10 digit phone number");
                 Console.WriteLine("Re-enter Phone Number");
                 phoneNumber = Console.ReadLine();
 
@@ -63,6 +63,8 @@ namespace UserRegistration
 
             }
             Console.WriteLine("Valid Password");
+
+            Console.WriteLine("User Registration is successfull");
         }
     }
 }
