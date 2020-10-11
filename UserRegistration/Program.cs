@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace UserRegistration
 {
@@ -9,62 +8,8 @@ namespace UserRegistration
         {
             Console.WriteLine("Welcome to user registration problem");
 
-            Console.WriteLine("\nEnter the first name");
-            string firstName = Console.ReadLine();
-            while (!Regex.IsMatch(firstName, @"^[A-Z][A-Za-z\s]{2,}$"))
-            {
-                Console.WriteLine("Invalid First Name. Should start with an uppercase and contain minimum 3 characters");
-                Console.WriteLine("Re-enter First Name");
-                firstName = Console.ReadLine();
-            }
-            Console.WriteLine("Valid First Name");
-            
-
-            Console.WriteLine("\nEnter the last name");
-            string lastName = Console.ReadLine();
-            while (!Regex.IsMatch(lastName, @"^[A-Z][a-z]{2,}$"))
-            {
-                Console.WriteLine("Invalid Last Name. Should start with an uppercase and contain minimum 3 characters");
-                Console.WriteLine("Re-enter Last Name");
-                lastName = Console.ReadLine();
-                
-            }
-            Console.WriteLine("Valid Last Name");
-
-            Console.WriteLine("\nEnter the Email");
-            string emailId = Console.ReadLine();
-            Regex reEmail = new Regex(@"^([a-z0-9][a-z0-9+_-]*\.?[a-z0-9]+@([a-z0-9]([a-z0-9-]*[a-z])?\.)([a-z0-9]([a-z0-9-]*[a-z])\.?)([a-z]{2})?)$");
-            while (!reEmail.IsMatch(emailId))
-            {
-                Console.WriteLine("Invalid Email Id. Should comply to emailId naming convention");
-                Console.WriteLine("Re-enter Email Id");
-                emailId = Console.ReadLine();
-            }
-            Console.WriteLine("Valid Email");
-
-            Console.WriteLine("\nEnter the phone number");
-            string phoneNumber = Console.ReadLine();
-            while (!Regex.IsMatch(phoneNumber, @"^\+?[0-9]{1,3}\s[0-9]{10}$"))
-            {
-                Console.WriteLine("Invalid Phone Number. Should countain country code followed by space and 10 digit phone number");
-                Console.WriteLine("Re-enter Phone Number");
-                phoneNumber = Console.ReadLine();
-
-            }
-            Console.WriteLine("Valid Phone Number");
-
-            Console.WriteLine("\nCreate a Password");
-            string password = Console.ReadLine();
-            while (!Regex.IsMatch(password, @"^(?=.{8,})(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&*_\-.,]).*$"))
-            {
-                Console.WriteLine("Invalid Password format, should contain atleast 8 characters, 1 uppercase character, 1 numeric character and 1 special character");
-                Console.WriteLine("Re-enter Password");
-                password = Console.ReadLine();
-
-            }
-            Console.WriteLine("Valid Password");
-
-            Console.WriteLine("User Registration is successfull");
+            User user = new User();
+            user.userRegistration();
         }
     }
 }
