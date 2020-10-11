@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace UserRegistration
 {
-    class User
+    public class User
     {
         public string firstName, lastName, emailId, phoneNumber, password;
 
