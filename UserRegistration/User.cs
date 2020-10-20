@@ -67,31 +67,31 @@ namespace UserRegistration
 
             Console.WriteLine("User Registration is successfull");
         }
-
-        public bool validateFirstName(string firstName)
+        
+        public Func<string, bool> validateFirstName = (firstName) =>
         {
             return Regex.IsMatch(firstName, @"^[A-Z][A-Za-z\s]{2,}$");
-        }
+        };
 
-        public bool validateLastName(string lastName)
+        public Func<string, bool> validateLastName = (lastName) =>
         {
             return Regex.IsMatch(lastName, @"^[A-Z][A-Za-z\s]{2,}$");
-        }
+        };
 
-        public bool validateEmailId(string emailId)
+        public Func<string, bool> validateEmailId = (emailId) =>
         {
-            Regex reEmail = new Regex(@"^([a-z0-9][a-z0-9+_-]*\.?[a-z0-9]+@([a-z0-9]([a-z0-9-]*[a-z])?\.)([a-z0-9]([a-z0-9-]*[a-z])\.?)([a-z]{2})?)$");
+            Regex reEmail = new Regex(@"^([a-z][a-z0-9+_-]*\.?[a-z0-9]+@([a-z]([a-z0-9-]*[a-z])\.)([a-z]([a-z0-9-]*[a-z])\.?)([a-z]{2,3})?)$");
             return reEmail.IsMatch(emailId);
-        }
+        };
 
-        public bool validatePhoneNumber(string phoneNumber)
+        public Func<string, bool> validatePhoneNumber = (phoneNumber) =>
         {
             return Regex.IsMatch(phoneNumber, @"^\+?[0-9]{1,3}\s[0-9]{10}$");
-        }
+        };
 
-        public bool validatePassword(string password)
+        public Func<string, bool> validatePassword = (password) =>
         {
             return Regex.IsMatch(password, @"^(?=.{8,})(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&*_\-.,]).*$");
-        }
+        };
     }
 }
